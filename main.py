@@ -1,6 +1,6 @@
-# write a rock-paper-scissors game
+# write a rock-paper-scissors game with a twist of having 5 choices instead of 3
 # 1. get user input
-# 2. check if the input is valid
+# 2. check if the input is valid (rock, paper, scissors, lizard, spock)
 # 3. if the input is not valid, ask again
 # 3. get computer input
 # 4. compare inputs
@@ -11,41 +11,79 @@
 import random
 
 def get_user_input():
-    user_input = input("Please input your choice [rock, paper, or scissors]: ")
+    user_input = input("Choose rock, paper, scissors, lizard, or spock: ")
     return user_input
 
 def get_computer_input():
-    computer_input = random.randint(0, 2)
-    if computer_input == 0:
-        computer_input = "rock"
-    elif computer_input == 1:
-        computer_input = "paper"
+    computer_input = random.randint(1,5)
+    if computer_input == 1:
+        return "rock"
+    elif computer_input == 2:
+        return "paper"
+    elif computer_input == 3:
+        return "scissors"
+    elif computer_input == 4:
+        return "lizard"
+    elif computer_input == 5:
+        return "spock"
     else:
-        computer_input = "scissors"
-    return computer_input
+        return "error"
+    
 
 def check_input(user_input):
-    if user_input == "rock" or user_input == "paper" or user_input == "scissors":
+    if user_input == "rock" or user_input == "paper" or user_input == "scissors" or user_input == "lizard" or user_input == "spock":
         return True
     else:
         return False
     
 def compare_inputs(user_input, computer_input):
-
     if user_input == computer_input:
         return "tie"
-    elif user_input == "rock" and computer_input == "paper":
-        return "computer"
-    elif user_input == "rock" and computer_input == "scissors":
-        return "user"
-    elif user_input == "paper" and computer_input == "rock":
-        return "user"
-    elif user_input == "paper" and computer_input == "scissors":
-        return "computer"
-    elif user_input == "scissors" and computer_input == "rock":
-        return "computer"
-    elif user_input == "scissors" and computer_input == "paper":
-        return "user"
+    elif user_input == "rock":
+        if computer_input == "paper":
+            return "computer"
+        elif computer_input == "scissors":
+            return "user"
+        elif computer_input == "lizard":
+            return "user"
+        elif computer_input == "spock":
+            return "computer"
+    elif user_input == "paper":
+        if computer_input == "rock":
+            return "user"
+        elif computer_input == "scissors":
+            return "computer"
+        elif computer_input == "lizard":
+            return "computer"
+        elif computer_input == "spock":
+            return "user"
+    elif user_input == "scissors":
+        if computer_input == "rock":
+            return "computer"
+        elif computer_input == "paper":
+            return "user"
+        elif computer_input == "lizard":
+            return "user"
+        elif computer_input == "spock":
+            return "computer"
+    elif user_input == "lizard":
+        if computer_input == "rock":
+            return "computer"
+        elif computer_input == "paper":
+            return "user"
+        elif computer_input == "scissors":
+            return "computer"
+        elif computer_input == "spock":
+            return "user"
+    elif user_input == "spock":
+        if computer_input == "rock":
+            return "user"
+        elif computer_input == "paper":
+            return "computer"
+        elif computer_input == "scissors":
+            return "user"
+        elif computer_input == "lizard":
+            return "computer"
     else:
         return "error"
     
